@@ -3,10 +3,15 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive_sample/addstudent.dart';
 import 'package:hive_sample/model/data_model.dart';
 
-void main() async {
+Future<void> main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
-  await Hive.openBox<StudentModel>('studentBox');
+  if (!Hive.isAdapterRegistered(StudentModelAdapter().typeId)) {
+    Hive.registerAdapter(StudentModelAdapter());
+  }
+
   runApp(const MyApp());
 }
 

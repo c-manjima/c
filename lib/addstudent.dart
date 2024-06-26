@@ -18,7 +18,7 @@ class _AddStudentState extends State<AddStudent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Student'),
+        title: Text('Add_Student'),
       ),
       body: SingleChildScrollView(
         child: Padding(
